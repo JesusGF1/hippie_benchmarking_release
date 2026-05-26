@@ -1,0 +1,20 @@
+{
+  "dataset": "DANDI_000041",
+  "description": "Rat neocortex sleep - pre-labeled cell types",
+  "features": {
+    "waveforms": true,
+    "isi_hist": true,
+    "acg": true
+  },
+  "feature_dims": {
+    "waveforms": 46,
+    "isi_hist": 100,
+    "acg": 201
+  },
+  "classes": [
+    "Excitatory",
+    "Inhibitory"
+  ],
+  "n_units": 221,
+  "n_subjects": 9
+}

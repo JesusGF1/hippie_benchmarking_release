@@ -1,0 +1,7 @@
+method,dataset,modality,n,mse
+zero_imputation,hausser_cell_type,wave,1998,0.2689621330452193
+mean_imputation,hausser_cell_type,wave,1998,0.193680673483088
+zero_imputation,hausser_cell_type,isi,1998,0.5888637890937771
+mean_imputation,hausser_cell_type,isi,1998,0.2820101916193097
+zero_imputation,hausser_cell_type,acg,1998,0.48656410499483854
+mean_imputation,hausser_cell_type,acg,1998,0.3537914991693839

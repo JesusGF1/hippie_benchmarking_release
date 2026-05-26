@@ -1,0 +1,2 @@
+fold,train_time_s,n_train,n_test,knn_best_k,knn_best_balanced_accuracy,knn_k1_balanced_accuracy,knn_k1_accuracy,knn_k5_balanced_accuracy,knn_k5_accuracy,linear_probe_balanced_accuracy,linear_probe_accuracy,mlp_probe_balanced_accuracy,mlp_probe_accuracy
+2,2.0221307277679443,81,20,3,0.7833333333333333,0.6880952380952381,0.75,0.7047619047619047,0.75,0.6547619047619048,0.7,0.7047619047619047,0.75

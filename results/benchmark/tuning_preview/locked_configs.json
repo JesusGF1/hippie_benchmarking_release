@@ -1,0 +1,81 @@
+{
+  "selection_rule_reference": "paper Methods \u00a7 hyperparameter parity",
+  "configs": {
+    "physmap": {
+      "config_id": "config_13",
+      "selection_classifier": "knn",
+      "selection_datasets": [
+        "hausser_cell_type"
+      ],
+      "selection_rule": "highest mean balanced accuracy with stability tiebreaker: within 1.96 \u00d7 SEM tie bucket, lowest std (lowest config_id as 3rd-level deterministic tiebreak)",
+      "mean_balanced_accuracy": 0.7802509157509157,
+      "std_balanced_accuracy": NaN,
+      "n_folds": 1,
+      "tie_bucket_size": 1,
+      "tie_bucket_config_ids": [
+        "config_13"
+      ],
+      "naive_top": {
+        "config_id": "config_13",
+        "mean": 0.7802509157509157,
+        "std": NaN
+      }
+    },
+    "hippie": {
+      "config_id": "config_25",
+      "selection_classifier": "knn",
+      "selection_datasets": [
+        "hausser_cell_type"
+      ],
+      "selection_rule": "highest mean balanced accuracy with stability tiebreaker: within 1.96 \u00d7 SEM tie bucket, lowest std (lowest config_id as 3rd-level deterministic tiebreak)",
+      "mean_balanced_accuracy": 0.7341904761904762,
+      "std_balanced_accuracy": 0.04940966699689209,
+      "n_folds": 5,
+      "tie_bucket_size": 15,
+      "tie_bucket_config_ids": [
+        "config_25",
+        "config_24",
+        "config_26",
+        "config_23",
+        "config_27",
+        "config_15",
+        "config_10",
+        "config_17",
+        "config_28",
+        "config_16",
+        "config_29",
+        "config_36",
+        "config_8",
+        "config_18",
+        "config_9"
+      ],
+      "naive_top": {
+        "config_id": "config_28",
+        "mean": 0.7696190476190476,
+        "std": 0.11742918935457082
+      }
+    },
+    "nemo": {
+      "config_id": "config_7",
+      "selection_classifier": "mlp",
+      "selection_datasets": [
+        "hausser_cell_type"
+      ],
+      "selection_rule": "highest mean balanced accuracy with stability tiebreaker: within 1.96 \u00d7 SEM tie bucket, lowest std (lowest config_id as 3rd-level deterministic tiebreak)",
+      "mean_balanced_accuracy": 0.8148571428571427,
+      "std_balanced_accuracy": 0.07282321027425614,
+      "n_folds": 5,
+      "tie_bucket_size": 3,
+      "tie_bucket_config_ids": [
+        "config_7",
+        "config_21",
+        "config_11"
+      ],
+      "naive_top": {
+        "config_id": "config_21",
+        "mean": 0.8148571428571427,
+        "std": 0.07282321027425617
+      }
+    }
+  }
+}

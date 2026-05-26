@@ -1,0 +1,5 @@
+"modality","label","best_k","best_balanced_accuracy"
+"WF","WF PCA",1,0.38475926688901
+"ISI","ISI PCA",2,0.599036519550595
+"AUTOCORR","Autocorr PCA",3,0.629267614114615
+"WNN","Physmap (WNN)",12,0.510501762472387

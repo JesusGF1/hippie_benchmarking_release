@@ -1,0 +1,4 @@
+"modality","label","best_k","best_balanced_accuracy"
+"WF","WF PCA",1,0.616460450904025
+"ISI","ISI PCA",3,0.617194674012856
+"WNN","Physmap (WNN)",14,0.657179158354707

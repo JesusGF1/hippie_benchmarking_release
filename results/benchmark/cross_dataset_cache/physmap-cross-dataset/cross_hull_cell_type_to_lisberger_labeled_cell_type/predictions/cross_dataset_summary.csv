@@ -1,0 +1,2 @@
+"train_dataset","predict_dataset","n_train_cells","n_predict_cells","wf_best_k","wf_balanced_accuracy","isi_best_k","isi_balanced_accuracy","acg_best_k","acg_balanced_accuracy","combined_best_k","combined_balanced_accuracy"
+"hull_cell_type","lisberger_labeled_cell_type",101,400,1,0.332382886391454,5,0.494811641506868,3,0.596761680452011,1,0.444664824499586

@@ -1,0 +1,12 @@
+method,dataset,cell_type,f1
+hippie,hausser_cell_type,GoC,0.5333333333333333
+hippie,hausser_cell_type,GrC,0.45454545454545453
+hippie,hausser_cell_type,MFB,0.5714285714285714
+hippie,hausser_cell_type,MLI,0.46153846153846156
+hippie,hausser_cell_type,PkC_cs,0.8928571428571429
+hippie,hausser_cell_type,PkC_ss,0.9014084507042254
+hippie,lisberger_labeled_cell_type,GoC,0.6409495548961425
+hippie,lisberger_labeled_cell_type,MFB,0.5081081081081081
+hippie,lisberger_labeled_cell_type,MLI,0.3958333333333333
+hippie,lisberger_labeled_cell_type,PkC_cs,0.6953846153846154
+hippie,lisberger_labeled_cell_type,PkC_ss,0.7938931297709924

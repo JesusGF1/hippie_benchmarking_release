@@ -1,0 +1,22 @@
+name: celltype_ibl
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - numpy
+  - scipy
+  - h5py
+  - tqdm
+  - scikit-learn
+  - matplotlib
+  - colorcet
+  - pandas
+  - seaborn
+  - pip
+  - pip:
+    - torch
+    - npyx>=2.6.0  # Required for fast_acg3d and 3D ACG computation
+    - pynwb  # Required for NWB file loading
+    - boto3  # Required for S3 access
+    - wandb  # Optional: for experiment tracking

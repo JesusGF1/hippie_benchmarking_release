@@ -1,0 +1,20 @@
+# Don't ship the renv library cache - we install packages globally inside
+# the container.
+renv/library/
+renv/local/
+renv/staging/
+renv/python/
+renv/.cache/
+
+# Local results / IDE clutter
+results/
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
+__pycache__/
+*.pyc
+
+# Don't ship the local secrets
+nrp/secrets.sh

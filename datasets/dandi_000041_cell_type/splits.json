@@ -1,0 +1,16 @@
+{
+  "train": [
+    "Rizzo",
+    "BWRat18",
+    "Bogey",
+    "BWRat17",
+    "Splinter",
+    "BWRat19",
+    "BWRat21"
+  ],
+  "val": [],
+  "test": [
+    "BWRat20",
+    "Dino"
+  ]
+}

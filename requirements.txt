@@ -1,0 +1,50 @@
+# HIPPIE benchmarking release — pip dependencies
+#
+# Version specs match environment.yml and pyproject.toml. Upper bounds
+# prevent major-version surprises while letting minor/patch updates through.
+#
+# Install: pip install -r requirements.txt
+# (or, equivalently:  pip install -e ".[dev]"  to install the hippie
+#  package along with the dev/test extras declared in pyproject.toml.)
+
+# Core deep-learning stack
+torch>=2.0,<3.0
+pytorch-lightning>=2.0,<3.0
+
+# Core scientific stack
+numpy>=1.23,<3.0
+pandas>=2.0,<3.0
+scikit-learn>=1.3,<2.0
+scipy>=1.11,<2.0
+
+# Visualization (matplotlib + seaborn + UMAP for figure scripts)
+matplotlib>=3.6,<4.0
+seaborn>=0.12,<1.0
+umap-learn>=0.5,<1.0
+
+# Experiment tracking (opt-in at runtime via WANDB_MODE=online; required
+# import even when disabled, so it stays a hard dependency).
+wandb>=0.15,<1.0
+
+# H5 file I/O (needed by hippie_wf3dacg, NEMO baseline, and the figure_supp
+# UMAP clustering script).
+h5py>=3.8,<4.0
+
+# Notebook tooling (for inspecting bundled .ipynb files)
+jupyter>=1.0,<2.0
+ipykernel>=6.0,<7.0
+
+# Test + lint tooling
+pytest>=7.0,<10.0
+pyyaml>=6.0,<7.0
+black>=22.1,<26.0
+isort>=5.10,<7.0
+mypy>=1.0,<2.0
+
+# Optional extras (uncomment if needed):
+#   npyx  — only needed by the NEMO baseline (C4 H5 format)
+#   boto3 — only needed for S3 dataset / checkpoint access
+#   pynwb — only needed for raw DANDI .nwb file preprocessing
+# npyx>=4.0
+# boto3>=1.26,<2.0
+# pynwb>=3.0,<4.0

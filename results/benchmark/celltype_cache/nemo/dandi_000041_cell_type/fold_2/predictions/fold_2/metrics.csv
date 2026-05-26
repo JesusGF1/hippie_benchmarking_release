@@ -1,0 +1,2 @@
+fold,mode,train_time_s,n_train,n_test,knn_best_k,knn_best_balanced_accuracy,knn_k1_balanced_accuracy,knn_k1_accuracy,knn_k5_balanced_accuracy,knn_k5_accuracy,linear_probe_balanced_accuracy,linear_probe_accuracy,mlp_probe_balanced_accuracy,mlp_probe_accuracy
+2,transductive,1.8950350284576416,726,181,9,0.7593728698023177,0.6668370824812543,0.8895027624309392,0.7315950920245399,0.9171270718232044,0.6482617586912065,0.9005524861878453,0.7099522835719154,0.9226519337016574

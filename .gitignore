@@ -1,0 +1,89 @@
+# macOS
+.DS_Store
+._*
+
+# Python bytecode & build artefacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+build/
+dist/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Editor / IDE
+.vscode/
+.idea/
+.claude/
+*.swp
+*.swo
+*~
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+
+# Training & experiment logs
+logs/
+wandb/
+mlruns/
+lightning_logs/
+
+# OS noise
+Thumbs.db
+desktop.ini
+
+# Large local artefacts not meant for the public release
+# (override with `git add -f <path>` if you really mean it)
+*.ckpt
+*.pt
+*.pth
+*.h5
+!datasets/**/*.csv
+# Force-include the Figure 6 checkpoint (~93 MB). The quickstart notebook and
+# the Fig 6 panels of `make figures` load it after a fresh clone, so it must be
+# tracked despite the blanket *.ckpt rule above.
+!results/18_cvae_only_experiments/hippie_cvae.ckpt
+# NOTE: datasets/hull_cell_type/C4_database_hull_labelled.h5 (2.1 GB raw C4
+# database) is deliberately left ignored — it exceeds GitHub's file-size limit
+# and is only needed for the wf3dacg cross-species *training* path, not figure
+# regeneration. Fetch it with scripts/download_c4_h5.py when retraining.
+# Regenerable caches/intermediates written into datasets/ during local training
+# (e.g. the wf3dacg ACG cache next to the .h5, and per-dataset pickles). These
+# are derived from the raw inputs and are never part of the release.
+datasets/**/.cache/
+datasets/**/acgs_*.npy
+datasets/**/dataset.pkl
+
+# Local config you don't want to ship
+.env
+.env.local
+*.local
+
+# Manuscript / rebuttal material — never shipped with the code release.
+# Scoped to the repo root and docs/ so generated figure tables under
+# figures/**/*.tex (e.g. the polarity supplement) are still tracked.
+/*.tex
+/docs/*.tex
+/hippie_latex.*
+/reviewers_response.md
+
+# Paper-consistency test suite (kept local, not shipped)
+tests/paper_consistency/
+
+# Cached predictions not consumed by the figure pipeline — kept locally
+# in case we need them later, but excluded from the public repo to keep
+# the upload small.
+/results_archive/

@@ -1,0 +1,21 @@
+{
+  "dataset": "DANDI_000473",
+  "description": "Mouse PFC recordings - FS/RS classification",
+  "label_note": "FS (Fast Spiking) = Inhibitory, RS (Regular Spiking) = Excitatory",
+  "features": {
+    "waveforms": true,
+    "isi_hist": true,
+    "acg": true
+  },
+  "feature_dims": {
+    "waveforms": 46,
+    "isi_hist": 100,
+    "acg": 201
+  },
+  "classes": [
+    "Excitatory",
+    "Inhibitory"
+  ],
+  "n_units": 9213,
+  "n_subjects": 25
+}

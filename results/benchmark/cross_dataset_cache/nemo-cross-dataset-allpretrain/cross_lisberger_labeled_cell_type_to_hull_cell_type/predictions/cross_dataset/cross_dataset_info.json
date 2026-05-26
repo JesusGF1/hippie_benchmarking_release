@@ -1,0 +1,19 @@
+{
+  "train_dataset": "C4_database_lisberger.h5",
+  "predict_dataset": "C4_database_hull_labelled.h5",
+  "train_n_cells": 480,
+  "predict_n_cells": 101,
+  "train_label_mapping": {
+    "MFB": 0,
+    "MLI": 1,
+    "PkC_cs": 2,
+    "PkC_ss": 3
+  },
+  "predict_label_mapping": {
+    "GoC": 0,
+    "MFB": 1,
+    "MLI": 2,
+    "PkC_cs": 3,
+    "PkC_ss": 4
+  }
+}

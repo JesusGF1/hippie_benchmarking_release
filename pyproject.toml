@@ -1,0 +1,94 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hippie"
+version = "0.1.0"
+description = "A package to perform classification and clustering of neurons based on HD-MEA recordings"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Jesus Gonzalez Ferrer", email = "jesusgzlezferrer@gmail.com"},
+    {name = "Julian Lehrer"}
+]
+maintainers = [
+    {name = "Jesus Gonzalez Ferrer", email = "jesusgzlezferrer@gmail.com"}
+]
+keywords = ["neuroscience", "HD-MEA", "clustering", "classification", "neurons"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    # Core deep-learning stack
+    "torch>=2.0,<3.0",
+    "pytorch-lightning>=2.0,<3.0",
+    # Core scientific stack
+    "numpy>=1.23,<3.0",
+    "pandas>=2.0,<3.0",
+    "scikit-learn>=1.3,<2.0",
+    "scipy>=1.11,<2.0",
+    # Visualization
+    "matplotlib>=3.6,<4.0",
+    "seaborn>=0.12,<1.0",
+    "umap-learn>=0.5,<1.0",
+    # Experiment tracking (opt-in at runtime via WANDB_MODE=online; the
+    # import itself is still required, so it stays a hard dependency).
+    "wandb>=0.15,<1.0",
+    # H5 I/O (used by hippie_wf3dacg, the NEMO baseline, and the supplementary
+    # UMAP clustering figure script).
+    "h5py>=3.8,<4.0",
+    # Notebook tooling (mirrors environment.yml / requirements.txt; needed
+    # to open the bundled NEMO replication notebook).
+    "jupyter>=1.0,<2.0",
+    "ipykernel>=6.0,<7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0,<10.0",
+    "pyyaml>=6.0,<7.0",
+    "black>=22.1,<26.0",
+    "isort>=5.10,<7.0",
+    "mypy>=1.0,<2.0",
+]
+# Only needed for S3 dataset / checkpoint access
+s3 = ["boto3>=1.26,<2.0"]
+# Only needed for NEMO baseline retraining (C4 H5 format)
+nemo = ["npyx>=4.0"]
+# Only needed for raw DANDI .nwb file preprocessing
+nwb = ["pynwb>=3.0,<4.0"]
+# Convenience: install all optional extras at once
+all = [
+    "boto3>=1.26,<2.0",
+    "npyx>=4.0",
+    "pynwb>=3.0,<4.0",
+]
+
+
+[project.urls]
+"Homepage" = "https://github.com/JesusGF1/hippie-benchmarking-release"
+"Repository" = "https://github.com/JesusGF1/hippie-benchmarking-release"
+
+[project.scripts]
+hippie-cli = "hippie.cli:main"
+
+[tool.setuptools]
+packages = ["hippie", "hippie_wf3dacg"]
+
+[tool.black]
+line-length = 88
+target-version = ["py310"]
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 88

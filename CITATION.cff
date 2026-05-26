@@ -1,0 +1,88 @@
+cff-version: 1.2.0
+title: >-
+  HIPPIE: A Generative Model for Electrophysiological Analysis Across Species,
+  Technologies, and Modalities (benchmarking release)
+message: >-
+  An earlier preprint version of this work is available on bioRxiv (cited
+  below); the manuscript currently associated with this code release is
+  under peer review and not yet public. When the peer-reviewed version is
+  published, this citation block will be updated to point at it.
+type: software
+authors:
+  - given-names: Jesus
+    family-names: Gonzalez-Ferrer
+  - given-names: Julian
+    family-names: Lehrer
+  - given-names: Bruno
+    family-names: Alvarez-Esteban
+  - given-names: Hunter E.
+    family-names: Schweiger
+  - given-names: Jinghui
+    family-names: Geng
+  - given-names: Luiz F. S.
+    family-names: Eugenio dos Santos
+  - given-names: Avelina
+    family-names: Moreno-Ochando
+  - given-names: Sebastian
+    family-names: Hernandez
+  - given-names: Francisco
+    family-names: Reyes
+  - given-names: Jess L.
+    family-names: Sevetson
+  - given-names: Aidan
+    family-names: Schneider
+  - given-names: Sofie R.
+    family-names: Salama
+  - given-names: Mircea
+    family-names: Teodorescu
+  - given-names: David
+    family-names: Haussler
+  - given-names: Mohammed A.
+    family-names: Mostajo-Radji
+repository-code: 'https://github.com/JesusGF1/hippie-benchmarking-release'
+license: BSD-3-Clause
+keywords:
+  - electrophysiology
+  - cell-type classification
+  - conditional variational autoencoder
+  - cross-species transfer
+  - neuroscience
+  - benchmarking
+preferred-citation:
+  type: article
+  title: >-
+    HIPPIE: A Multimodal Deep Learning Model for Electrophysiological
+    Classification of Neurons
+  authors:
+    - given-names: Jesus
+      family-names: Gonzalez-Ferrer
+    - given-names: Julian
+      family-names: Lehrer
+    - given-names: Hunter E.
+      family-names: Schweiger
+    - given-names: Jinghui
+      family-names: Geng
+    - given-names: Sebastian
+      family-names: Hernandez
+    - given-names: Francisco
+      family-names: Reyes
+    - given-names: Jess L.
+      family-names: Sevetson
+    - given-names: Sofie R.
+      family-names: Salama
+    - given-names: Mircea
+      family-names: Teodorescu
+    - given-names: David
+      family-names: Haussler
+    - given-names: Mohammed A.
+      family-names: Mostajo-Radji
+  year: 2025
+  month: 3
+  journal: bioRxiv
+  doi: 10.1101/2025.03.14.642461
+  url: 'https://www.biorxiv.org/content/10.1101/2025.03.14.642461v1'
+  notes: >-
+    bioRxiv v1, posted 2025-03-15. The peer-reviewed manuscript associated
+    with this code release is currently in review and has a different title,
+    expanded scope, and expanded author list; this citation will be updated
+    when the peer-reviewed version is published.
