@@ -4,7 +4,7 @@ All notable changes to this benchmarking release will be documented here.
 This project follows [Semantic Versioning](https://semver.org/) and
 [Keep a Changelog](https://keepachangelog.com/) conventions.
 
-## [1.0.0] — 2025
+## [0.1.0] — 2026-05-26
 
 ### Added
 
@@ -42,9 +42,6 @@ under a different title, is on bioRxiv `10.1101/2025.03.14.642461`).
   `docs/DATASETS.md`) covering install, figure regeneration, per-figure
   training recipes, negative controls, dataset provenance, and the
   preprocessing pipeline that produced the bundled CSVs.
-- Quickstart Jupyter notebook (`examples/quickstart.ipynb`) that loads the
-  released checkpoint, encodes the bundled datasets, and reproduces the
-  G0/G1/G2 generative analyses on CPU in a few minutes.
 - Citation metadata (`CITATION.cff`) and pinned R dependency lockfile
   (`comparison_methods/physmap/renv.lock`).
 
@@ -53,3 +50,5 @@ under a different title, is on bioRxiv `10.1101/2025.03.14.642461`).
 - Pretrained HIPPIE checkpoint (`hippie_techcond_v1.ckpt`) is published
   separately on Hugging Face at `Jesusgf23/hippie`.
 - The benchmarking code is released under BSD-3-Clause; see `LICENSE`.
+- Tutorial/example notebooks live in the HIPPIE package repo
+  (`braingeneers/HIPPIE`, under `examples/`), not in this benchmarking repo.

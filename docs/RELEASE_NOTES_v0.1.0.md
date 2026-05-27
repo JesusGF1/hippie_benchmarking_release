@@ -1,4 +1,4 @@
-# HIPPIE benchmarking — v1.0.0
+# HIPPIE benchmarking — v0.1.0
 
 Initial public release of the benchmarking codebase accompanying the HIPPIE
 manuscript **A Generative Model for Electrophysiological Analysis Across
@@ -14,11 +14,12 @@ citation below.
 - Ten processed per-unit datasets (mouse, rat, macaque; silicon probes,
   juxtacellular, Neuropixels)
 - Cached per-fold predictions sufficient to regenerate every paper figure
-- Per-figure reproduction recipes, the preprocessing pipeline description,
-  and an animated quickstart notebook
+- Per-figure reproduction recipes and the preprocessing pipeline description
 - The pretrained checkpoint `hippie_techcond_v1.ckpt` is published separately
   at [Hugging Face: `Jesusgf23/hippie`](https://huggingface.co/Jesusgf23/hippie)
   under Apache-2.0
+- Tutorial notebooks (load the checkpoint, embed/classify, train on your own
+  data) live in the HIPPIE package repo, `braingeneers/HIPPIE` (`examples/`)
 
 ## Reviewer workflow
 

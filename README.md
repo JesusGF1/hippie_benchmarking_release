@@ -20,7 +20,7 @@ analysis/                    Figure-generating scripts (one per paper figure)
 datasets/                    Processed per-unit CSVs for all benchmarks
 results/                     Cached predictions for instant figure regeneration
 figures/                     Pre-generated paper figures (PNG + SVG) + regen targets
-examples/                    Quickstart notebook (CPU, ~few minutes)
+examples/                    HF checkpoint smoke test (CPU)
 docs/                        Reproduction guide, dataset documentation, model card
 ```
 
@@ -142,20 +142,18 @@ Inside each per-method-per-dataset directory, the standard layout is:
 ```
 
 The trained Figure 6 checkpoint (`results/18_cvae_only_experiments/hippie_cvae.ckpt`,
-~93 MB) is force-included in the repo so the quickstart notebook works after
+~93 MB) is force-included in the repo so Figure 6 regeneration
+(`analysis/CVAE_only_latent_flow.py`, run by `scripts/run_all_figures.sh`) works after
 a fresh clone. The much larger `Jesusgf23/hippie/hippie_techcond_v1.ckpt`
 used by the web app lives on Hugging Face and is downloaded on demand by
 `examples/smoke_test_hf_checkpoint.py`.
 
-## Quickstart notebook
+## Tutorial notebooks
 
-`examples/quickstart.ipynb` walks through loading the bundled Figure 6
-checkpoint, encoding three benchmark datasets, and reproducing the G0 / G1 / G2
-generative analyses on CPU in a few minutes. Open it from the repository root:
-
-```bash
-jupyter notebook examples/quickstart.ipynb
-```
+Example/tutorial notebooks (loading the pretrained checkpoint, embedding and
+classifying neurons, and training on your own data) live in the HIPPIE package
+repository: [github.com/braingeneers/HIPPIE](https://github.com/braingeneers/HIPPIE),
+under `examples/`. This benchmarking repo focuses on reproducing the paper figures.
 
 ## Citation
 

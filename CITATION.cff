@@ -8,6 +8,10 @@ message: >-
   under peer review and not yet public. When the peer-reviewed version is
   published, this citation block will be updated to point at it.
 type: software
+# The authors list below is the full software/codebase team for this
+# benchmarking release. It intentionally differs from the preferred-citation
+# block, which mirrors the bioRxiv preprint's author list (cite that for now).
+# The peer-reviewed manuscript will carry the expanded author list.
 authors:
   - given-names: Jesus
     family-names: Gonzalez-Ferrer
