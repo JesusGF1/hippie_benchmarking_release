@@ -70,7 +70,7 @@ DATASETS = {
         "species":        "Macaque",
         "brain_region":   "Cerebellar cortex",
         "recording_tech": "Plexon S-Probes",
-        "n_cells":        666,
+        "n_cells":        668,
     },
 }
 

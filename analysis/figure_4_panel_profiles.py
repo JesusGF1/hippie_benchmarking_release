@@ -137,18 +137,15 @@ def _plot_distribution(ax: plt.Axes, labels: pd.Series, classes: list[str]) -> N
     counts      = [int((labels == c).sum()) for c in classes]
     proportions = np.array(counts) / len(labels)
     x           = np.arange(len(classes))
-    bars = ax.bar(
+    ax.bar(
         x, proportions,
         color=BAR_GREY, edgecolor=BAR_GREY_EDGE,
         linewidth=0.8, width=0.7,
     )
-    for bar, n in zip(bars, counts):
-        ax.annotate(
-            f"n={n}",
-            xy=(bar.get_x() + bar.get_width() / 2, bar.get_height()),
-            xytext=(0, 2), textcoords="offset points",
-            ha="center", va="bottom", fontsize=7, color="#222",
-        )
+    # No per-bar n= annotations: this is a proportion plot, and the cached Hull
+    # table stores each neuron twice, so raw row counts here would be 2x the
+    # counts used by the benchmark. The authoritative per-class n values are the
+    # deduplicated ones given in the figure legend.
     ax.set_xticks(x)
     ax.set_xticklabels(classes, rotation=30, ha="right", fontsize=8)
     ax.set_ylabel("Proportion", fontsize=8)

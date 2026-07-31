@@ -119,6 +119,18 @@ def plot_sweep_bars(long_df: pd.DataFrame, out_stem: Path) -> None:
         color=colors, edgecolor="white", linewidth=0.5, capsize=2.5,
         error_kw={"elinewidth": 0.7, "ecolor": "#333"},
     )
+
+    # Overlay the individual per-fold values: n = 5 < 10, so all points are shown
+    # (Nature Communications figure policy). Same treatment as panel C.
+    rng = np.random.default_rng(21)
+    per_config = mlp.groupby("config_id")["balanced_accuracy"].apply(np.asarray)
+    for xi, cid in zip(x, agg["config_id"]):
+        pts = per_config.loc[cid].astype(float)
+        ax.scatter(
+            xi + rng.uniform(-0.17, 0.17, size=len(pts)),
+            pts, s=4.0, color="#1e3a5f", zorder=3, linewidth=0, alpha=0.85,
+        )
+
     ax.set_xticks(x)
     ax.set_xticklabels(
         [cid.replace("config_", "c") for cid in agg["config_id"]],
