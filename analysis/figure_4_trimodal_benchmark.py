@@ -336,7 +336,8 @@ def plot_bars(df: pd.DataFrame, dataset: str) -> None:
 
     bar_w = max(6, n * 0.9)
     fig = plt.figure(figsize=(bar_w + 2.6, 3.6), facecolor="white")
-    fig.suptitle(info["display"], fontsize=10, fontweight="bold")
+    # No panel title: the dataset is named in the adjacent summary table and in
+    # the figure legend.
 
     gs = gridspec.GridSpec(
         1, 3, figure=fig,
@@ -363,9 +364,8 @@ def plot_bars(df: pd.DataFrame, dataset: str) -> None:
             sem  = float(np.std(sub, ddof=1) / np.sqrt(len(sub))) if len(sub) > 1 else 0.0
             is_ctrl = mkey in IS_NEGCTRL
             color = NEGCTRL_COLOR if is_ctrl else BAR_COLOR
-            hatch = "////" if is_ctrl else None
             ec = "#555" if is_ctrl else "white"
-            ax.bar(xi, mean, yerr=sem, color=color, edgecolor=ec, hatch=hatch,
+            ax.bar(xi, mean, yerr=sem, color=color, edgecolor=ec,
                    linewidth=0.8, capsize=3, width=0.65,
                    error_kw={"elinewidth": 0.8, "ecolor": "#333"}, zorder=2)
             ax.scatter(
@@ -440,18 +440,13 @@ def plot_confusion_matrices(df: pd.DataFrame, dataset: str) -> None:
         ax.set_ylabel("True", fontsize=8)
         ax.set_title(METHOD_DISPLAY.get(mkey, mkey), fontsize=9, fontweight="bold")
 
-        for i in range(n_cls):
-            for j in range(n_cls):
-                val = cm[i, j]
-                color = "white" if val > 0.55 else "#222"
-                ax.text(j, i, f"{val:.2f}", ha="center", va="center",
-                        fontsize=7.5, color=color)
+        # Recall values are not printed in the cells: the colour bar carries the
+        # scale, and the per-cell numbers are available in the Source Data file.
 
-        plt.colorbar(im, ax=ax, shrink=0.75)
-
-    fig.suptitle(f"{info['short']} — confusion matrices (pooled folds)",
-                 fontsize=9, fontweight="bold")
+    # One shared colour bar for the row, and no row title: the dataset and the
+    # normalisation are stated in the figure legend.
     fig.tight_layout()
+    fig.colorbar(im, ax=list(axes), shrink=0.75, fraction=0.02, pad=0.01)
     _save_fig(fig, OUT_DIR / f"{dataset}_cm_grid")
 
 

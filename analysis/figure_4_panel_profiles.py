@@ -112,7 +112,8 @@ def load(dataset_key: str, class_order: list[str]) -> tuple[np.ndarray, np.ndarr
 # ---------------------------------------------------------------------------
 
 def _plot_modality(ax: plt.Axes, data: np.ndarray, labels: pd.Series,
-                   classes: list[str], title: str, xlabel: str, ylabel: str) -> None:
+                   classes: list[str], title: str, xlabel: str, ylabel: str,
+                   legend: bool = True) -> None:
     x = np.arange(data.shape[1])
     for c in classes:
         m = (labels == c).values
@@ -130,7 +131,8 @@ def _plot_modality(ax: plt.Axes, data: np.ndarray, labels: pd.Series,
     ax.spines["right"].set_visible(False)
     ax.grid(axis="y", linestyle=":", linewidth=0.5, alpha=0.5)
     ax.set_axisbelow(True)
-    ax.legend(loc="best", fontsize=7, frameon=False, ncol=1)
+    if legend:
+        ax.legend(loc="best", fontsize=7, frameon=False, ncol=1)
 
 
 def _plot_distribution(ax: plt.Axes, labels: pd.Series, classes: list[str]) -> None:
@@ -221,14 +223,15 @@ def make_profile(which: str) -> None:
 
     _plot_distribution(ax_dist, labels, classes)
     _plot_modality(ax_wf,  waveforms, labels, classes,
-                   "Mean waveform", "Time (samples)", "Amplitude (z-score)")
+                   "Mean waveform by cell type", "Time (samples)", "Amplitude",
+                   legend=False)
     _plot_modality(ax_isi, isi,       labels, classes,
                    "Mean ISI distribution", "ISI bin", "Density (norm.)")
     _plot_modality(ax_acg, acg,       labels, classes,
                    "Mean ACG distribution", "Lag bin", "Density (norm.)")
 
-    fig.suptitle(f"Dataset profile: {info['display']}",
-                 fontsize=11, fontweight="bold", y=0.98)
+    fig.suptitle(f"Dataset profile: {info['display'].split(' (')[0]}",
+                 fontsize=11, y=0.98)
 
     stem = OUT_DIR / f"{key}_fig4_profile"
     svg  = stem.with_suffix(".svg")
