@@ -1,7 +1,7 @@
 """Figure 4 Supplemental — trimodal (WF+ISI+ACG) benchmark on additional datasets.
 
 Datasets NOT shown in main Figure 4:
-    dandi_000041_cell_type   Watson (Rat Neocortex) — 236 cells, 2 cell types,
+    dandi_000041_cell_type   Watson (Rat Neocortex) — 221 cells, 2 cell types,
                              frontal cortex, 64-site silicon probes, 9 subjects.
 
 Methods: HIPPIE, NEMO (where available), PhysMAP (WNN), PCA-WF, PCA-ISI, PCA-ACG.
@@ -37,7 +37,7 @@ DATASETS = {
         "species":        "Rat",
         "brain_region":   "Frontal cortex",
         "recording_tech": "64-site silicon probe",
-        "n_cells":        236,
+        "n_cells":        221,
     },
 }
 

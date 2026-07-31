@@ -1,0 +1,16 @@
+dataset,polarity,N_test,ba
+Hull,Overall,101,0.9452300150829562
+Hull,negative,56,0.9526209677419355
+Hull,biphasic,39,0.9403846153846154
+Hull,positive,6,0.75
+Lisberger,Overall,668,0.6780514408386209
+Lisberger,positive,247,0.649776618670628
+Lisberger,negative,368,0.6134962896430787
+Lisberger,biphasic,53,0.5720736779560308
+Hausser,Overall,104,0.6768076923076923
+Hausser,positive,3,
+Hausser,biphasic,44,0.6021212121212122
+Hausser,negative,57,0.599090909090909
+CellExplorer,Overall,359,0.5342720685111989
+CellExplorer,negative,253,0.5409674502712477
+CellExplorer,biphasic,106,0.5073735062293414

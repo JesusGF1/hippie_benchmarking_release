@@ -1,0 +1,49 @@
+\begin{table}[h!]
+\centering
+\caption{Waveform polarity composition and HIPPIE classification accuracy across nine cell-type datasets. Bal.\ Acc is the mean balanced accuracy (KNN, transductive) $\pm$ standard deviation across 5 folds, using the same prediction cache as the corresponding main figure: Hull and Lisberger use the trimodal (WF+ISI+ACG) Figure~4 cache (full conditioning); A1 and Juxtacellular S1 use the bimodal (WF+ISI) Figure~3 cache; all other datasets use the trimodal Figure~3 cache.}
+\label{tab:polarity_between}
+\begin{tabular}{lrrrrrr}
+\hline
+\textbf{Dataset} & \textbf{N} & \textbf{\% negative} & \textbf{\% biphasic} & \textbf{\% positive} & \textbf{Bal. Acc} & \textbf{SD} \\
+\hline
+Hull                 &  101  & 55.4 &  38.6 &   5.9 & 0.949 & 0.039 \\
+Lisberger            &  668  & 55.1 &   7.9 &  37.0 & 0.678 & 0.027 \\
+DANDI-041            &  221  & 89.1 &  10.0 &   0.9 & 0.770 & 0.057 \\
+DANDI-473            & 9213  & 98.0 &   1.9 &   0.1 & 0.718 & 0.022 \\
+DANDI-955            &  134  &  0.0 & 100.0 &   0.0 & 0.690 & 0.105 \\
+Hausser              &  104  & 54.8 &  42.3 &   2.9 & 0.682 & 0.066 \\
+Juxtacellular S1     &  224  &  0.0 &  45.5 &  54.5 & 0.914 & 0.051 \\
+A1 auditory          &  285  & 42.1 &  57.9 &   0.0 & 0.569 & 0.065 \\
+CellExplorer         &  430  & 63.5 &  36.5 &   0.0 & 0.534 & 0.035 \\
+\hline
+\multicolumn{2}{l}{Pearson $r$ vs.\ Bal.\ Acc} & $-0.18$ & $-0.10$ & $+0.45$ & & \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Within-dataset balanced accuracy stratified by waveform polarity group (HIPPIE transductive KNN, 5-fold CV, pooled across folds). Overall is the aggregate balanced accuracy across all test neurons; polarity-stratified rows show accuracy restricted to test neurons in each polarity class. Hull and Lisberger use the trimodal (WF+ISI+ACG) Figure~4 prediction cache; Hausser and CellExplorer use the Figure~3 cache. Gaps $\leq 0.05$ indicate no meaningful polarity effect; larger gaps are inconsistent in direction across datasets.}
+\label{tab:polarity_within}
+\begin{tabular}{llrr}
+\hline
+\textbf{Dataset} & \textbf{Polarity} & \textbf{N (test)} & \textbf{Bal. Acc} \\
+\hline
+Hull         & Overall    &  101 & 0.945 \\
+             & negative   &   56 & 0.953 \\
+             & biphasic   &   39 & 0.940 \\
+             & positive   &    6 & 0.750 \\
+Lisberger    & Overall    &  668 & 0.678 \\
+             & positive   &  247 & 0.650 \\
+             & negative   &  368 & 0.613 \\
+             & biphasic   &   53 & 0.572 \\
+Hausser      & Overall    &  104 & 0.677 \\
+             & positive   &    3 & n.a. \\
+             & biphasic   &   44 & 0.602 \\
+             & negative   &   57 & 0.599 \\
+CellExplorer & Overall    &  359 & 0.534 \\
+             & negative   &  253 & 0.541 \\
+             & biphasic   &  106 & 0.507 \\
+\hline
+\end{tabular}
+\end{table}
