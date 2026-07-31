@@ -449,8 +449,23 @@ def main():
             f"/src/datasets_hippie/{dataset}/{filename}",
             f"/src/datasets/{dataset}/{filename}",
         ])
+        local_roots = ("./datasets/", "datasets/", "./datasets_hippie/", "datasets_hippie/")
         for path in possible_paths:
             if os.path.exists(path):
+                outside_checkout = not path.startswith(local_roots) and not (
+                    env_root and path.startswith(env_root.rstrip("/"))
+                )
+                if outside_checkout:
+                    # Resolving to a container mount rather than the checkout means
+                    # the run may not be reproducible from this repository, and any
+                    # cache it writes can silently disagree with datasets/.
+                    print(
+                        f"WARNING: {filename} for '{dataset}' resolved to {path}, "
+                        f"which is outside this repository. Results computed here "
+                        f"may not match datasets/{dataset}/. Set HIPPIE_DATA_ROOT "
+                        f"to pin the source.",
+                        file=sys.stderr,
+                    )
                 print(f"Found {filename} at: {path}")
                 return path
         raise FileNotFoundError(f"Could not find {filename} in any of these locations: {possible_paths}")

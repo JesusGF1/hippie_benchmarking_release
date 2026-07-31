@@ -100,9 +100,9 @@ DISPLAY_ORDER = [
 DISPLAY_NAMES = {
     "hull_cell_type":                "Hull",
     "lisberger_labeled_cell_type":  "Lisberger",
-    "dandi_000041_cell_type":        "DANDI-041",
-    "dandi_000473_cell_type":        "DANDI-473",
-    "dandi_000955_cell_type":        "DANDI-955",
+    "dandi_000041_cell_type":        "Watson",
+    "dandi_000473_cell_type":        "Calvigioni",
+    "dandi_000955_cell_type":        "Ramachandran",
     "hausser_cell_type":             "Hausser",
     "juxtacellular_mouse_s1_area":   "Juxtacellular S1",
     "a1data_remove_undef":           "A1 auditory",
