@@ -35,6 +35,10 @@ DATASET_DISPLAY = {
     ALLEN: "Allen (mouse, 19 regions, neuropixels)",
     IBL:   "IBL (mouse, 10 regions, neuropixels)",
 }
+DATASET_TITLE = {
+    ALLEN: "Allen Institute Visual Coding dataset",
+    IBL:   "IBL Brainwide Map",
+}
 DATASET_N_CLASSES = {ALLEN: 19, IBL: 10}
 CHANCE = {ALLEN: 1 / 19, IBL: 1 / 10}
 
@@ -54,7 +58,7 @@ METHODS_TRANSDUCTIVE: list[tuple[str, str, str]] = [
     ("hippie_regioncond", "HIPPIE (KNN)",   "knn"),
     ("hippie_regioncond", "HIPPIE (MLP)",   "mlp"),
     ("vae",               "VAE",            "knn"),
-    ("wf-rf",           "Buccino",        "knn"),
+    ("wf-rf",           "WF-RF",        "knn"),
     ("nemo",              "NEMO (KNN)",     "knn"),
     ("nemo",              "NEMO (MLP)",     "mlp"),
     ("physmap",           "PhysMAP (WNN)",  "knn_cv_mean"),
@@ -68,7 +72,7 @@ METHODS_HOLDOUT: list[tuple[str, str, str]] = [
     ("hippie_regioncond", "HIPPIE (KNN)",  "knn"),
     ("hippie_regioncond", "HIPPIE (MLP)",  "mlp"),
     ("vae",               "VAE",           "knn"),
-    ("wf-rf",           "Buccino",       "knn"),
+    ("wf-rf",           "WF-RF",       "knn"),
     ("nemo",              "NEMO (KNN)",    "knn"),
     ("nemo",              "NEMO (MLP)",    "mlp"),
 ]
@@ -122,9 +126,13 @@ def _axis_style(ax: plt.Axes, ylabel: str, chance: float) -> None:
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
     ax.axhline(chance, color="#666", linestyle="--", linewidth=0.9, zorder=1)
-    ax.text(0.995, chance + 0.015, f"chance = {chance:.2f}",
+    # Drawn above the bars on an opaque patch: the label sits at the height of
+    # the chance line, where bars taller than chance would otherwise hide it.
+    ax.text(0.995, chance + 0.02, f"chance = {chance:.2f}",
             transform=ax.get_yaxis_transform(), ha="right", va="bottom",
-            fontsize=7, color="#666")
+            fontsize=7, color="#444", zorder=6,
+            bbox=dict(facecolor="white", edgecolor="none",
+                      boxstyle="square,pad=0.25", alpha=0.9))
 
 
 def _plot_bars_single(ax: plt.Axes, df: pd.DataFrame, dataset: str,
@@ -178,13 +186,6 @@ def _draw_region_bars(ax: plt.Axes, dataset: str) -> None:
     x    = np.arange(len(regions))
     bars = ax.bar(x, props, color=BAR_GREY, edgecolor=BAR_GREY_EDGE,
                   linewidth=0.8, width=0.7)
-    for bar, n in zip(bars, values):
-        ax.annotate(
-            f"n={n}",
-            xy=(bar.get_x() + bar.get_width() / 2, bar.get_height()),
-            xytext=(0, 2), textcoords="offset points",
-            ha="center", va="bottom", fontsize=6.5, color="#222",
-        )
     ax.set_xticks(x)
     ax.set_xticklabels(regions, rotation=45, ha="right", fontsize=7)
     ax.set_ylabel("Proportion", fontsize=8)
@@ -206,7 +207,7 @@ def plot_combined_region_profiles() -> None:
     n_allen = len(_load_region_counts(ALLEN))
     n_ibl   = len(_load_region_counts(IBL))
 
-    fig = plt.figure(figsize=(13, 3.2), facecolor="white")
+    fig = plt.figure(figsize=(11, 3.0), facecolor="white")
     gs  = gridspec.GridSpec(
         1, 2, figure=fig,
         width_ratios=[n_allen, n_ibl],
@@ -247,13 +248,6 @@ def plot_region_profile(dataset: str) -> None:
     x    = np.arange(len(regions))
     bars = ax.bar(x, props, color=BAR_GREY, edgecolor=BAR_GREY_EDGE,
                   linewidth=0.8, width=0.7)
-    for bar, n in zip(bars, values):
-        ax.annotate(
-            f"n={n}",
-            xy=(bar.get_x() + bar.get_width() / 2, bar.get_height()),
-            xytext=(0, 2), textcoords="offset points",
-            ha="center", va="bottom", fontsize=6.5, color="#222",
-        )
 
     ax.set_xticks(x)
     ax.set_xticklabels(regions, rotation=45, ha="right", fontsize=7)
@@ -285,7 +279,7 @@ def plot_bars(df: pd.DataFrame, dataset: str) -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
     # Transductive has 8 methods, holdout has 4 — use proportional column widths
-    fig = plt.figure(figsize=(18, 3.8), facecolor="white")
+    fig = plt.figure(figsize=(14, 3.9), facecolor="white")
     gs  = gridspec.GridSpec(
         1, 5, figure=fig,
         width_ratios=[2.5, 2.5, 0.06, 1.25, 1.25],
@@ -307,12 +301,12 @@ def plot_bars(df: pd.DataFrame, dataset: str) -> None:
     _plot_bars_single(ax_hb, df, dataset, "holdout",      "balanced_accuracy", "Balanced accuracy", METHODS_HOLDOUT)
     _plot_bars_single(ax_hf, df, dataset, "holdout",      "macro_f1",          "Macro F1",          METHODS_HOLDOUT)
 
-    ax_tb.set_title("Transductive — balanced accuracy",   fontsize=8, pad=4)
-    ax_tf.set_title("Transductive — macro F1",            fontsize=8, pad=4)
-    ax_hb.set_title("Holdout — balanced accuracy",        fontsize=8, pad=4)
-    ax_hf.set_title("Holdout — macro F1",                 fontsize=8, pad=4)
+    ax_tb.set_title("Transductive - Balanced Accuracy",   fontsize=8, pad=4)
+    ax_tf.set_title("Transductive - Macro F1",            fontsize=8, pad=4)
+    ax_hb.set_title("Holdout - Balanced Accuracy",        fontsize=8, pad=4)
+    ax_hf.set_title("Holdout - Macro F1",                 fontsize=8, pad=4)
 
-    fig.suptitle(DATASET_DISPLAY[dataset], fontsize=10, fontweight="bold", y=1.01)
+    fig.suptitle(DATASET_TITLE[dataset], fontsize=10, y=1.01)
 
     stem_key = "allen" if dataset == ALLEN else "ibl"
     stem = OUT_DIR / f"{stem_key}_bars"
