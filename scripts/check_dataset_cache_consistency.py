@@ -55,8 +55,9 @@ DOCUMENTED = {
     "lisberger_labeled_cell_type": (
         {668}, "labels.csv holds 1,152 units; 484 are unlabelled"),
     "hull_cell_type": (
-        {101, 103}, "103 labelled units; Golgi cells (n = 2) dropped by the n < 5 "
-                    "rule for most methods, retained by WF-RF"),
+        {101, 103}, "103 labelled units; the n < 5 rule drops Golgi cells (n = 2) "
+                    "to give the 101 used for the benchmark. One cache holds the "
+                    "unfiltered 103"),
     "cellexplorer_cell_type": (
         {359}, "430 units across 7 classes; axo-axonic (35), juxtacellular (23) "
                "and VGAT (13) not carried into the cell-type analyses"),
